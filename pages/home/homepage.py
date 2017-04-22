@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from selenium.webdriver.common.by import By
-from selenium_demo.pages import basepage
+from pages import basepage
 
 
 class HomePage(basepage.BasePage):

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 from selenium import webdriver
-from selenium_demo.pages.home import homepage
+from pages.home import homepage
 
 
 class Test_Search(unittest.TestCase):
@@ -20,7 +20,10 @@ class Test_Search(unittest.TestCase):
         home_page = homepage.HomePage(self.driver)
         home_page.input_search('test')
         home_page.click_search()
+        self.driver.implicitly_wait(10)
+        self.assertIn('wd=test', self.driver.current_url)
+
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
