@@ -8,6 +8,6 @@ baseUrl = 'https://www.baidu.com'
 
 def driverPath():
     if platform.system() == 'windows':
-        return os.path.join(dirname(dirname(abspath(__file__))), 'tool\  chromedriver')
+        return os.path.join(dirname(dirname(abspath(__file__))), 'tool\chromedriver')
     else:
         return os.path.join(dirname(dirname(abspath(__file__))), 'tool/chromedriver')
