@@ -3,6 +3,7 @@
 import unittest
 from selenium import webdriver
 from pages.home import homepage
+from pages import config
 
 
 class Test_Search(unittest.TestCase):
@@ -10,13 +11,12 @@ class Test_Search(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(10)
-        self.base_url = "https://www.baidu.com"
 
     def tearDown(self):
         self.driver.close()
 
     def test_search(self):
-        self.driver.get(self.base_url)
+        self.driver.get(config.baseUrl)
         home_page = homepage.HomePage(self.driver)
         home_page.input_search('test')
         home_page.click_search()
