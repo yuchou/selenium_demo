@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import unittest
+import HtmlTestRunner
 from pages.home import homepage
 
 
@@ -21,4 +22,4 @@ class Test_Search(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='html', report_title=u'test'))
