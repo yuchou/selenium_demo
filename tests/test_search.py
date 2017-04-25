@@ -9,7 +9,7 @@ from pages import config
 class Test_Search(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(config.driverPath())
         self.driver.implicitly_wait(10)
         self.base_url = config.baseUrl
         self.driver.maximize_window()
