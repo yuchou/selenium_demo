@@ -1,18 +1,24 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from selenium.webdriver.common.by import By
 from pages import basepage
+from pages import config
 
 
 class HomePage(basepage.BasePage):
 
-    kw = (By.ID, 'kw')
-    click = (By.ID, 'su')
+    kw = ('ID', 'kw')
+    su = ('ID', 'su')
+
+    def __init__(self, browser='chrome'):
+        super().__init__(browser)
+        self.open(config.baseUrl)
+        self.waitElement()
+        self.maximizeWindow()
 
     def input_search(self, kw):
-        keyword = self.driver.find_element(*HomePage.kw)
-        keyword.send_keys(kw)
+        keyword = self.findElement(*HomePage.kw)
+        self.type(keyword, kw)
 
     def click_search(self):
-        search = self.driver.find_element(*HomePage.click)
-        search.click()
+        search = self.findElement(*HomePage.su)
+        self.click(search)
