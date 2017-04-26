@@ -7,10 +7,12 @@ from pages.home import homepage
 
 class Test_Search(unittest.TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         self.home_page = homepage.HomePage("chrome")
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(self):
         self.home_page.quit()
 
     def test_search(self):
