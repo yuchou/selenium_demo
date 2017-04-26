@@ -51,6 +51,41 @@ class BasePage(object):
             raise ValueError("No such element found" + str(element))
         return elem
 
+    def findElements(self, *element):
+        '''
+        Find elements
+
+        element is a set with format (identifier type, value), e.g. ('id','username')
+
+        Usage:
+        self.findElements(element)
+        '''
+        try:
+            type = element[0]
+            value = element[1]
+            if type == "id" or type == "ID" or type == "Id":
+                elem = self.driver.find_elements_by_id(value)
+
+            elif type == "name" or type == "NAME" or type == "Name":
+                elem = self.driver.find_elements_by_name(value)
+
+            elif type == "class" or type == "CLASS" or type == "Class":
+                elem = self.driver.find_elements_by_class_name(value)
+
+            elif type == "link_text" or type == "LINK_TEXT" or type == "Link_text":
+                elem = self.driver.find_elements_by_link_text(value)
+
+            elif type == "xpath" or type == "XPATH" or type == "Xpath":
+                elem = self.driver.find_elements_by_xpath(value)
+
+            elif type == "css" or type == "CSS" or type == "Css":
+                elem = self.driver.find_elements_by_css_selector(value)
+            else:
+                raise NameError("Please correct the type in function parameter")
+        except Exception:
+            raise ValueError("No such element found" + str(element))
+        return elem
+
     def open(self, url):
         """
         Open web url
