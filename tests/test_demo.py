@@ -5,7 +5,7 @@ from comm import html
 from pages.home import homepage
 
 
-class Test_Search(unittest.TestCase):
+class Test_Demo(unittest.TestCase):
 
     def setUp(self):
         self.home_page = homepage.HomePage("chrome")
@@ -13,10 +13,10 @@ class Test_Search(unittest.TestCase):
     def tearDown(self):
         self.home_page.quit()
 
-    def test_search(self):
-        u"""测试百度搜索test"""
-        self.home_page.input_search('test')
+    def test_demo(self):
+        u"""测试百度搜索demo"""
+        self.home_page.input_search('demo')
         self.home_page.waitElement()
         self.home_page.click_search()
         self.home_page.waitTime()
-        self.assertIn('wd=test', self.home_page.getCurrentUrl())
+        self.assertIn('wd=demo', self.home_page.getCurrentUrl())
