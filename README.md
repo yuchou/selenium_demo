@@ -2,6 +2,11 @@
 for web testing
 # selenium api
 
-# unittest for html report
-https://github.com/oldani/HtmlTestRunner
-pip install html-testRunner
+# unittest with html report
+```python
+# https://github.com/oldani/HtmlTestRunner
+$ pip install html-testRunner
+```
+
+
+
