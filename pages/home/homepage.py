@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from pages import basepage
-from pages import config
+from comm import basepage, config
 
 
 class HomePage(basepage.BasePage):

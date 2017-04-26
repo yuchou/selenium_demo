@@ -3,7 +3,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from pages.config import driverPath
+from comm.config import driverPath
 
 
 class BasePage(object):

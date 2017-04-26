@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import unittest
-import HtmlTestRunner
+from comm import html
 from pages.home import homepage
 
 
@@ -14,6 +14,7 @@ class Test_Search(unittest.TestCase):
         self.home_page.quit()
 
     def test_search(self):
+        u'测试百度搜索'
         self.home_page.input_search('test')
         self.home_page.waitElement()
         self.home_page.click_search()
@@ -22,4 +23,4 @@ class Test_Search(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='html', report_title=u'test'))
+    unittest.main(testRunner=html.HTMLTestRunner(output='html', report_title=u'测试'))

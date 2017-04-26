@@ -4,3 +4,4 @@ for web testing
 
 # unittest for html report
 https://github.com/oldani/HtmlTestRunner
+pip install html-testRunner
