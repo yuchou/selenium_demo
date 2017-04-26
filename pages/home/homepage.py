@@ -16,6 +16,7 @@ class HomePage(basepage.BasePage):
 
     def input_search(self, kw):
         keyword = self.findElement(*HomePage.kw)
+        self.clear(keyword)
         self.type(keyword, kw)
 
     def click_search(self):
