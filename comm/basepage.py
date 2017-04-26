@@ -127,6 +127,15 @@ class BasePage(object):
         """
         element.click()
 
+    def clear(self, element):
+        """
+        Clear page element
+        
+        Usage:
+        self.clear()
+        """
+        element.clear()
+
     def quit(self):
         """
         Quit webdriver
