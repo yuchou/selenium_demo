@@ -12,12 +12,14 @@ def smail(report_file, to_list):
     msg['From'] = "admin/user@youlu"
     msg['To'] = ",".join(to_list)
     for files in report_file:
-        att = MIMEText(open(files, 'rb').read(), 'base64', 'utf-8')
-        att["Content-Type"] = 'application/octet-stream'
-        att.add_header('content-disposition', 'attachment', filename=files)
-        msg.attach(att)
-        content = MIMEText(open(files, encoding="utf-8").read(), 'html', 'utf-8')
-        msg.attach(content)
+        with open(files, 'rb') as f:
+            att = MIMEText(f.read(), 'base64', 'utf-8')
+            att["Content-Type"] = 'application/octet-stream'
+            att.add_header('content-disposition', 'attachment', filename=files)
+            msg.attach(att)
+        with open(files, encoding="utf-8") as f:
+            content = MIMEText(f.read(), 'html', 'utf-8')
+            msg.attach(content)
 
     s = smtplib.SMTP('10.10.0.6')
     s.send_message(msg)
